@@ -1,0 +1,17 @@
+class Welcome extends React.Component{
+    render(){
+        return (
+           <h1>Hello World!
+            <p>{this.props.message}</p>
+          </h1>
+          
+        )
+    }
+}
+
+var element = <Welcome/>
+
+    ReactDOM.render(
+    <Welcome message = "This is a message"/>,
+    document.getElementById("root")
+)

@@ -1,0 +1,30 @@
+function Feature(props){
+  if (props.active == true){
+    return <h1>This feature is active</h1>
+  }
+  return <h1>This feature is not active</h1>  
+}
+
+function Feature2(props){
+  if(!props.active){
+     return null
+  }
+  return <h1>{props.message}</h1>
+}
+
+function Feature21(props){
+  return (
+    props.active && <h1>{props.message}</h1>
+  )
+}
+
+ReactDOM.render(
+  (
+     <div>
+        <Feature active = {true} />
+        <Feature2 active = {true} message = "My message 2" />
+        <Feature21 active = {true} message = "My message 2.1" />
+     </div>
+   ),
+   document.getElementById("root")
+)

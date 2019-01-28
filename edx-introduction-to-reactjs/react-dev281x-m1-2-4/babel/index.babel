@@ -1,0 +1,55 @@
+var element = <h1>Hello World</h1>
+      
+ReactDOM.render(
+    element,
+    document.getElementById("root")
+)
+
+var num = 0;
+
+function updateNum(){
+
+  ReactDOM.render(
+    <div>{num++}</div>,
+    document.getElementById("num")
+  )
+}
+
+setInterval(updateNum,2000)
+
+var item = {
+  name: "Cheese",
+  price: 5
+}
+
+function calculateArea(x, y) {
+  return x * y;
+}
+
+
+var dinElement = (
+    <div>    
+      <h1 className= {item.name}>Hello {item.name} ({item.price})</h1>
+      <h2 className= "title2">{calculateArea(2, 3)}</h2>
+    </div>
+    
+)
+ 
+ReactDOM.render(
+    dinElement,
+    document.getElementById("din")
+)
+
+function HelloWorld(props){
+  return (
+      <div>
+        <h1>Message: {props.message}</h1>
+        <h1>Message 2: {props.numberArray[props.index]}</h1>
+      </div>
+  )
+}
+
+ReactDOM.render(
+  <HelloWorld index = "3" numberArray={[1, 2, 3, 4, 5]} message="Hello World!"/>,
+  document.getElementById("comp")
+)

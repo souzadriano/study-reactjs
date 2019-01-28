@@ -1,0 +1,39 @@
+class Counter extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+                foo:123,
+                bar:456, 
+                message:"initial message",
+                value:0
+        }
+    }
+    componentDidMount(){
+        this.setState({message:"new message"})
+      
+        //The setState() method does not immediately update the state of the component
+        this.setState({value:this.state.value+1})
+        this.setState({value:this.state.value+1})
+        this.setState({value:this.state.value+1})
+        this.setState({value:this.state.value+1})
+      
+        //The method updates the state asynchronously, so a there is an option callback that will be called once the state has finished updating completely.
+        this.setState((prevState, props) => {
+            return {message: prevState.message + '!'}
+        })
+    }
+    render(){
+        return (
+            <div> 
+              <div>foo: {this.state.foo} bar: {this.state.bar}</div>
+              <div>Message: {this.state.message}</div>
+              <div>Value: {this.state.value}</div>
+          </div>
+        )
+    }
+}
+
+ReactDOM.render(
+  <Counter/>,
+  document.getElementById("root")
+)
